@@ -11,8 +11,13 @@ func main() {
 		Scheduler:   &scheduler.SimpleScheduler{},
 		WorkerCount: 100,
 	}
+	// e.Run(engine.Request{
+	// 	Url:        "http://www.zhenai.com/zhenghun",
+	// 	ParserFunc: parser.ParserCityList,
+	// })
+
 	e.Run(engine.Request{
-		Url:        "http://www.zhenai.com/zhenghun",
-		ParserFunc: parser.ParserCityList,
+		Url:        "http://www.zhenai.com/zhenghun/shanghai",
+		ParserFunc: parser.ParserCity,
 	})
 }

@@ -13,12 +13,12 @@ func (s *QueueSchduler) WorkerReady(w chan engine.Request) {
 	s.workerChan <- w
 }
 
-func (s *QueueSchduler) Submit(r engine.Request) {
-	s.requestChan <- r
+func (s *QueueSchduler) WorkerChan() chan engine.Request {
+	return make(chan engine.Request)
 }
 
-func (s *QueueSchduler) ConfigureMasterWorkerChan(c chan engine.Request) {
-
+func (s *QueueSchduler) Submit(r engine.Request) {
+	s.requestChan <- r
 }
 
 func (s *QueueSchduler) Run() {
